@@ -7,8 +7,8 @@ public static class PalinDromerAnalizer
     public static List<string> GetPalinDromes(string userInput, int PalinDromeSize) //PalinDromeSize - n by condition
     {
         var result = new List<string>();
-        var validString = Regex.Replace(userInput, @"[a-zA-ZА-Яа-яІіЇїЄє\s]", "");
-        var words = validString.Split(' ');
+        var validString = Regex.Replace(userInput, @"a-zA-ZА-Яа-яІіЇїЄє\s", string.Empty);
+        var words = validString.Split(' '); 
         foreach (var item in words)
         {
             string reverseWord = ReverseString(item);
@@ -31,21 +31,4 @@ public static class PalinDromerAnalizer
         return new string(chars);
     }
 
-    public static void Setup()
-    {
-        Console.InputEncoding = Encoding.Unicode;
-        Console.OutputEncoding = Encoding.UTF8;
-    }
-
-
-
-
-    public static void ViewPalidromes(List<string> palindromes)
-    {
-        Console.WriteLine("Список палідромів");
-        foreach (var item in palindromes)
-        {
-            Console.WriteLine(item);
-        }
-    }
 }
